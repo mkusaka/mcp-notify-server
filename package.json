@@ -7,11 +7,21 @@
   "bin": {
     "mcp-notify-server": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc && chmod +x dist/index.js",
     "start": "node dist/index.js",
     "dev": "tsc -w",
-    "inspect": "mcp-inspector dist/index.js"
+    "inspect": "mcp-inspector dist/index.js",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,9 +30,11 @@
   "keywords": [
     "mcp",
     "notification",
-    "sound"
+    "sound",
+    "cursor",
+    "windsurf"
   ],
-  "author": "",
+  "author": "mkusaka",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mkusaka/mcp-notify-server/issues"
@@ -37,5 +49,8 @@
     "@modelcontextprotocol/inspector": "^0.6.0",
     "@types/node": "^20.11.28",
     "typescript": "^5.4.2"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
